@@ -1,0 +1,39 @@
+{
+  "name": "vue-map-points",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "vue": "^3.2.13",
+    "vue-draggable-next": "^2.2.1",
+    "vue-router": "^4.0.3",
+    "vue-virtual-scroll-list": "^2.3.5",
+    "vue-virtualised": "^0.1.8",
+    "vue3-virtual-scroll-list": "^0.2.1",
+    "vue3-virtual-scroller": "^0.2.3",
+    "vuedraggable": "^2.24.3",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.12",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-typescript": "^9.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "prettier": "^2.4.1",
+    "typescript": "~4.5.5"
+  }
+}
