@@ -41,7 +41,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem; /* Reduce padding to make the header narrow */
   background-color: white;
   border-bottom: 1px solid #ccc;
   font-size: 14px;
@@ -50,6 +50,10 @@ header {
 header h1 {
   margin: 0;
   font-size: 18px;
+}
+
+nav {
+  display: flex;
 }
 
 nav a {

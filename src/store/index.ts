@@ -1,13 +1,5 @@
-// src/store/index.ts
 import { createStore } from "vuex";
-
-export interface Point {
-  id: number;
-  name: string;
-  code: string;
-  coordinates: [number, number];
-  // Add other fields as necessary
-}
+import { Point, generatePoints } from "../points";
 
 interface State {
   points: Point[];
@@ -17,7 +9,7 @@ interface State {
 
 const store = createStore<State>({
   state: {
-    points: [], // Will be populated with at least 10,000 points
+    points: generatePoints(10000),
     activePoint: null,
     selectedPoints: [],
   },
@@ -33,16 +25,6 @@ const store = createStore<State>({
     },
   },
   actions: {
-    fetchPoints({ commit }) {
-      // Simulate fetching points
-      const points = Array.from({ length: 10000 }, (_, i) => ({
-        id: i,
-        name: `Point ${i}`,
-        code: `P${i}`,
-        coordinates: [Math.random() * 180 - 90, Math.random() * 360 - 180],
-      }));
-      commit("setPoints", points);
-    },
     selectPoint({ commit }, point: Point) {
       commit("setActivePoint", point);
     },

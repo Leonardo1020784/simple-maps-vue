@@ -6,3 +6,7 @@ declare module '*.vue' {
 }
 declare module 'vue3-virtual-scroll-list';
 
+declare module '*.png' {
+  const value: string;
+  export default value;
+}

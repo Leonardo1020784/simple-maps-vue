@@ -8,11 +8,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@quasar/extras": "^1.16.11",
+    "@types/leaflet.markercluster": "^1.5.4",
     "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
+    "quasar": "^2.16.4",
     "vue": "^3.2.13",
     "vue-draggable-next": "^2.2.1",
     "vue-router": "^4.0.3",
-    "vue-virtual-scroll-list": "^2.3.5",
     "vue-virtualised": "^0.1.8",
     "vue3-virtual-scroll-list": "^0.2.1",
     "vue3-virtual-scroller": "^0.2.3",

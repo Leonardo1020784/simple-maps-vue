@@ -1,14 +1,12 @@
 <template>
   <div class="form-container" v-if="activePoint">
-    <h2>Edit Point</h2>
+    <h6>Edit Point</h6>
     <form @submit.prevent="savePoint">
       <div>
-        <label>Name</label>
-        <input v-model="form.name" required />
+        <label>Name: {{ form.name }}</label>
       </div>
       <div>
-        <label>Code</label>
-        <input v-model="form.code" required />
+        <label>Code: {{ form.code }}</label>
       </div>
       <div>
         <label>Latitude</label>
@@ -26,7 +24,7 @@
 <script lang="ts">
 import { defineComponent, computed, ref, watch } from "vue";
 import { useStore } from "vuex";
-import { Point } from "../store/index";
+import { Point } from "../points";
 
 export default defineComponent({
   name: "FormComponent",
@@ -36,7 +34,7 @@ export default defineComponent({
     const form = ref({
       name: "",
       code: "",
-      coordinates: [0, 0],
+      coordinates: [0, 0] as [number, number], // Ensure this is a tuple
     });
 
     watch(
@@ -50,55 +48,70 @@ export default defineComponent({
     );
 
     const savePoint = () => {
+      const updatedPoint: Point = { ...form.value, id: activePoint.value.id };
       store.commit(
         "setPoints",
         store.state.points.map((point: Point) =>
-          point.id === activePoint.value.id ? form.value : point
+          point.id === updatedPoint.id ? updatedPoint : point
         )
       );
     };
 
-    return { form, activePoint, savePoint };
+    return {
+      form,
+      activePoint,
+      savePoint,
+    };
   },
 });
 </script>
 
 <style scoped>
 .form-container {
-  background-color: white;
-  padding: 1rem;
+  padding: 20px;
+  background-color: #fff;
   border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+.form-container h2 {
+  margin-top: 0;
 }
 
-div {
-  margin-bottom: 0.5rem;
+.form-container div {
+  margin-bottom: 10px;
 }
 
-label {
-  font-weight: bold;
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-input {
-  padding: 0.5rem;
+.form-container p {
+  margin: 0;
+  padding: 8px;
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-button {
-  padding: 0.5rem;
-  border: none;
+.form-container input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-container button {
+  padding: 10px 15px;
   background-color: #007bff;
   color: white;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-button:hover {
+.form-container button:hover {
   background-color: #0056b3;
 }
 </style>
